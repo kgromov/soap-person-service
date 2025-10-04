@@ -2,81 +2,15 @@
 <wsdl:definitions
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-        xmlns:tns="http://example.com/personservice"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://example.com/personservice"
         name="PersonService"
         targetNamespace="http://example.com/personservice">
 
     <wsdl:types>
-        <xsd:schema targetNamespace="http://example.com/personservice">
-            <xsd:element name="Person">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="id" type="xsd:int"/>
-                        <xsd:element name="firstName" type="xsd:string"/>
-                        <xsd:element name="lastName" type="xsd:string"/>
-                        <xsd:element name="age" type="xsd:int"/>
-                        <xsd:element name="birthDate" type="xsd:date"/>
-                        <xsd:element name="gender" type="xsd:string"/>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="getPersonRequest">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="id" type="xsd:int"/>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="getPersonResponse">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element ref="tns:Person"/>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="createPersonRequest">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element ref="tns:Person"/>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="createPersonResponse">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element ref="tns:Person"/>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="updatePersonRequest">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element ref="tns:Person"/>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="updatePersonResponse">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element ref="tns:Person"/>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="deletePersonRequest">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="id" type="xsd:int"/>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="deletePersonResponse">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="success" type="xsd:boolean"/>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
+        <xsd:schema>
+            <xsd:import namespace="http://example.com/personservice"
+                        schemaLocation = "Person.xsd" />
         </xsd:schema>
     </wsdl:types>
 
